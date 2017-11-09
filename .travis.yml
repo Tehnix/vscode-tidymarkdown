@@ -1,0 +1,52 @@
+language: node_js
+
+node_js:
+- 8
+
+sudo: true
+
+cache:
+  directories:
+    - "node_modules"
+
+branches:
+  only:
+  - master
+
+install:
+- npm install
+
+script: 
+- npm test --silent
+
+before_deploy:  
+- npm install -g vsce
+- vsce package
+
+# To setup the deploys:
+#   1) Insert an encrypted GitHub OAuth API key with `travis setup releases`
+#   2) Go to the travis page for the project at, https://travis-ci.org/<User Name>/<Repo Name>
+#      a) Under `More Options` go into `Settings`
+#      b) Set a environment variable `VS_TOKEN` with the value of your VS Code personal token
+#      c) Make sure `Display value in build log` is turned OFF!
+deploy:
+- provider: releases # Deploy the *.vsix pcakge to GitHub releases.
+  api_key:
+    secure: eblFVE92R7rNEoAyB/BPtvHKxGiq6XYP5uuPpU1ONjvNOdRatN9fhfd3nJRtI+4SjYpIPHrYWU2B/+j6qEWn/KeSFjMR+QUsHwJ11MzKUS35gpNKGRQn0Pp2Y7mwdCSBallPb0ndBFUMFK4speWlqmUoWx3OGC6SL4KACLlYIF48eBKkmHiBGUnqvmjOoo8oZJilRYVa55et119EifCvkwDRa/xxUNdx61K1xLKbb6kALA5ZorJQ0DG6rFarq1ggIZwVl/dwuzSdyj85K6dDUNL2uamTidJIP1TzmyC5WKfUOBwq5G3JdYWgAIihDfVbwyy2NilW2R5CzMcgs/KWDd50PS+oNRZsq7EDkLBB00vYc4cduL2pOYOIiNAJ01zQtArP8g1gQdVZO5Rk/+yiAEAGyCqaA2ZzOo850ac+RqCQyo/UFeRMpxLJJg++2k9RWwgqzH/yLIkGFCgUxuBCE/UHjsjs4ybS+owx5JnC5IxRn7XbJ55K/ipFQPY60xv+FLRY4NlQfOF67NE+LDgzam88CF9F+ut5iyNHUyvqW6bmznVS4E4/dKaXkuGMtKi0G6Aas2azkXFuMjg9Q5Yi+HiB+aRne4Pi7jMiNA3+C9Vz09pt2lDvHst1QIhWg+U279lL7koNL4l1Xg3HO3MqGHg75GwoUM/yt8NJfg26jOw=
+  file_glob: true
+  file: "*.vsix"
+  skip_cleanup: true
+  on: # Due to a limitation with releases, we can only deploy them on tags.
+    repo: Tehnix/vscode-tidymarkdown
+    tags: true
+- provider: script # Deploy to VS Code Market Place
+  script: vsce publish -p $VS_TOKEN
+  skip_cleanup: true
+
+# If we only want to, say, deploy when we apply a tag to a commit, we can do add:
+  # on:
+  #   repo: Tehnix/vscode-tidymarkdown
+  #   tags: true
+
+notifications:
+  email: false
