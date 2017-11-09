@@ -3,20 +3,6 @@
 import * as vscode from 'vscode';
 const tidyMarkdown: any = require('tidy-markdown');
 
-let output: vscode.OutputChannel;
-
-function showOutput(msg: string): void {
-	msg = msg.toString();
-
-	if (!output) {
-		output = vscode.window.createOutputChannel('Remark');
-	}
-
-	output.clear();
-	output.appendLine('[Remark]');
-	output.append(msg);
-	output.show();
-}
 
 function getRangeOfDocument(document: vscode.TextDocument) : vscode.Range {
     const start = new vscode.Position(0, 0);
