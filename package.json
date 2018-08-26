@@ -62,6 +62,6 @@
         "typescript": "^2.6.1"
     },
     "dependencies": {
-        "tidy-markdown": "^2.0.4"
+        "tidy-markdown": "2.0.4"
     }
 }
