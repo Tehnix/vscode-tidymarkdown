@@ -3,7 +3,7 @@
     "displayName": "Tidy Markdown Formatter",
     "description": "Formatter for markdown using the tidy-markdown formatter",
     "license": "BSD-3-Clause",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "publisher": "tehnix",
     "engines": {
         "vscode": "^1.6.0"
@@ -18,7 +18,7 @@
     },
     "categories": [
         "Formatters",
-        "Languages"
+        "Programming Languages"
     ],
     "keywords": [
         "formatter",

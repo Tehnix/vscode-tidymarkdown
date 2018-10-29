@@ -14,6 +14,10 @@ Explicitly enable or disable the Tidy Markdown formatter (in case of clash with 
 
 ## Change Log
 
+### 0.0.4
+
+- Pin tidy-markdown to version 2.0.4, see atom-beautify#1549 for related issue
+
 ### 0.0.3
 
 - Add icon to marketplace page
