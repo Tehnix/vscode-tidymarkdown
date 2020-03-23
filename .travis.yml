@@ -20,16 +20,17 @@ before_install:
       export CXX="g++-4.9" CC="gcc-4.9" DISPLAY=:99.0;
       sh -e /etc/init.d/xvfb start;
       sleep 3;
+      # Might also need apt install libnss3-dev libxss1 libasound2 xvfb
     fi
 
 install:
 - npm install
 - npm run vscode:prepublish
 
-script: 
+script:
 - npm test --silent
 
-before_deploy:  
+before_deploy:
 - npm install -g vsce
 - vsce package
 
