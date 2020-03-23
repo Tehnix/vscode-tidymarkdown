@@ -3,7 +3,7 @@
     "displayName": "Tidy Markdown Formatter",
     "description": "Formatter for markdown using the tidy-markdown formatter",
     "license": "BSD-3-Clause",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "publisher": "tehnix",
     "engines": {
         "vscode": "^1.6.0"
@@ -44,6 +44,11 @@
                     "type": "boolean",
                     "default": false,
                     "description": "Explicitly enable/disble the Tidy Markdown formatter"
+                },
+                "tidyMarkdown.ensureFirstHeaderIsH1": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Ensure document starts with H1"
                 }
             }
         }
@@ -56,10 +61,10 @@
         "test": "npm run compile && node ./node_modules/vscode/bin/test"
     },
     "devDependencies": {
-        "@types/mocha": "^2.2.42",
-        "@types/node": "^7.0.43",
-        "vscode": "^1.1.6",
-        "typescript": "^2.6.1"
+        "@types/mocha": "^7.0.2",
+        "@types/node": "^13.9.3",
+        "typescript": "^3.8.3",
+        "vscode": "^1.1.36"
     },
     "dependencies": {
         "tidy-markdown": "2.0.4"

@@ -12,7 +12,18 @@ Explicitly enable or disable the Tidy Markdown formatter (in case of clash with 
 "tidyMarkdown.disableFormatter": false,
 ```
 
+Disable `ensureFirstHeaderIsH1` tidy-markdown option,
+
+```json
+"tidyMarkdown.ensureFirstHeaderIsH1": false,
+```
+
+
 ## Change Log
+
+### 0.0.5
+
+- Add option to disable `ensureFirstHeaderIsH1`
 
 ### 0.0.4
 
