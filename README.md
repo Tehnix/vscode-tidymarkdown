@@ -6,6 +6,17 @@ Adds support for the formatting Markdown documents using [tidy-markdown](https:/
 
 ## Configuration
 
+Set tidy markdown to default formatter for markdown in your `settings.json`:
+
+```
+"[markdown]": {
+    "editor.defaultFormatter": "tehnix.vscode-tidymarkdown"
+},
+"editor.formatOnSave": true, // probably want this to
+```
+
+Alternatively, use the `Format Document With...` command.
+
 Explicitly enable or disable the Tidy Markdown formatter (in case of clash with others),
 
 ```json
